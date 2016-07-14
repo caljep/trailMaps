@@ -1,26 +1,29 @@
+const path = require('path')
 module.exports = {
  entry: ["./global.js" , "./app.js"],
  output: {
    filename: "bundle.js"
  },
  module: {
-   
    loaders: [
      {
-       test: [/\.js$/, /\.es6$/],
+       test: [/\.jsx?$/, /\.es6$/],
        exclude: /node_modules/,
-       loader: 'babel-loader',
+       loader: 'babel',
        query: {
          presets: ['react', 'es2015'] 
        }
      },
      {
        test: /\.scss$/,
-       loaders: ["style", "css-loader", "sass-loader"]
+       loaders: ["style", "css", "sass"]
      }
    ]
  },
  resolve: {
    extensions: ['', '.js', '.es6']
- }
+ },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./")]
+  }
 }

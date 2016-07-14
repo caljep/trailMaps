@@ -1,8 +1,7 @@
+import ReactDOM from 'react-dom';
 import React from 'react';
 import Hello from './hello';
-require("./sass/styling.scss")
-
-React.render(
+ReactDOM.render(
  <Hello name="World" />,
- document.body
+ document.getElementById('main')
 );
